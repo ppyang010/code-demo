@@ -4,10 +4,9 @@ import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
 import org.apache.curator.framework.api.CuratorWatcher;
 import org.apache.curator.retry.RetryNTimes;
-import org.apache.zookeeper.CreateMode;
-import org.apache.zookeeper.WatchedEvent;
-import org.apache.zookeeper.ZooDefs;
+import org.apache.zookeeper.*;
 
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Scanner;
@@ -64,5 +63,10 @@ public class ZookeeperDemo {
             String line = s.nextLine();
             System.out.println(line);
         }
+    }
+
+    public static  void demo() throws IOException, KeeperException, InterruptedException {
+        ZooKeeper zooKeeper = new ZooKeeper("", 3000, null);
+        zooKeeper.create("1",null,null,null);
     }
 }

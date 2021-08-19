@@ -10,5 +10,9 @@ eureka:
     #  表示是否从Eureka Server获取注册信息，默认为true。
     fetch-registry: false
     serviceUrl:
-          defaultZone: http://127.0.0.1:7700/eureka/
-
+      defaultZone: http://127.0.0.1:7700/eureka/
+  server:
+    #    关闭自我保护机制
+    enable-self-preservation: false
+    #    是否使用 readOnlyCacheMap
+#    useReadOnlyResponseCache: false

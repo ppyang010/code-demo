@@ -9,6 +9,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.context.WebServerInitializedEvent;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.event.EventListener;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -27,6 +28,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 public class SpringDemoApplication {
 
     public static void main(String[] args) {
+//        new AnnotationConfigApplicationContext();
 //        SpringApplication.run(SpringDemoApplication.class, args);
         SpringApplication springApplication = new SpringApplication(SpringDemoApplication.class);
         //设置为 非 web 应用

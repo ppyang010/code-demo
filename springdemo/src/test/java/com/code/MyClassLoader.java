@@ -1,6 +1,6 @@
 package com.code;
 
-import com.sun.xml.internal.messaging.saaj.util.ByteOutputStream;
+import cn.hutool.core.io.IoUtil;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -43,10 +43,12 @@ public class MyClassLoader extends ClassLoader {
         File file = new File(uri);
         try {
             FileInputStream fileInputStream = new FileInputStream(file);
-            ByteOutputStream out = new ByteOutputStream();
-            out.write(fileInputStream);
+            byte[] bytes = IoUtil.readBytes(fileInputStream);
 
-            return defineClass(out.getBytes(), 0, out.getCount());
+//            ByteOutputStream out = new ByteOutputStream();
+//            out.write(fileInputStream);
+
+            return defineClass(bytes, 0, bytes.length);
         } catch (IOException e) {
             e.printStackTrace();
         }
