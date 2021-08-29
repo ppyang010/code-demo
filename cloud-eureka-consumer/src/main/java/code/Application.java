@@ -2,10 +2,15 @@ package code;
 
 
 import code.config.FeignConfig;
+import code.config.RibbonConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.cloud.client.SpringCloudApplication;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.cloud.netflix.ribbon.RibbonClient;
+import org.springframework.cloud.netflix.ribbon.RibbonClients;
 import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.cloud.openfeign.FeignContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
@@ -27,10 +32,15 @@ import org.springframework.web.client.RestTemplate;
 
 @EnableFeignClients(defaultConfiguration = FeignConfig.class)
 @SpringCloudApplication
+//为ribbon设置配置
+//@RibbonClient(name = "could-eureka-producer", configuration = RibbonConfig.class)
+//@RibbonClients(defaultConfiguration = RibbonConfig.class)
 public class Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
+		ConfigurableApplicationContext run = SpringApplication.run(Application.class, args);
+		FeignContext feignContext = run.getBean(FeignContext.class);
+		System.out.println("success");
 	}
 
 	@Bean

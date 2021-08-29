@@ -12,7 +12,7 @@ eureka:
       defaultZone: http://127.0.0.1:7700/eureka
 feign:
   hystrix:
-    enabled: true
+    enabled: false
 #   httpclient:
 #     enabled: true
 
@@ -28,14 +28,14 @@ hystrix:
       maxQueueSize: -1 #BlockingQueue的最大队列数，默认值-1
       #最大线程数量
       maximumSize: 20
-#      允许maximumSize大于coreSize，只有配了这个值maximumSize才有意义(才生效) 默认false
+      #      允许maximumSize大于coreSize，只有配了这个值maximumSize才有意义(才生效) 默认false
       allowMaximumSizeToDivergeFromCoreSize: false
-#      超过这个时间多于coreSize数量的线程会被回收，只有maximumsize大于coreSize，这个值才有意义 默认1 单位分钟
+      #      超过这个时间多于coreSize数量的线程会被回收，只有maximumsize大于coreSize，这个值才有意义 默认1 单位分钟
       keepAliveTimeMinutes: 1
       #即使maxQueueSize没有达到，达到queueSizeRejectionThreshold该值后，请求也会被拒绝，默认值5
       #任务队列中存储的任务数量超过这个值，线程池拒绝新的任务。这跟maxQueueSize本来是一回事，只是受限于hystrix的实现方式maxQueueSize不能动态配置，所以有了这个配置。
       queueSizeRejectionThreshold: 800
-#     设置定制线程池核心线程数
+    #     设置定制线程池核心线程数
     xxxPool:
       coreSize: 10
   command:
@@ -52,3 +52,10 @@ hystrix:
           thread:
             timeoutInMilliseconds: 100 #请求超时时间
 
+#ribbon:
+##  ServerListUpdaterClassName: com.netflix.niws.loadbalancer.EurekaNotificationServerListUpdater
+#
+#
+#could-eureka-producer:
+#  ribbon:
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule

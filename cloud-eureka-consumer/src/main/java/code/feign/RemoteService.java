@@ -1,5 +1,6 @@
 package code.feign;
 
+import code.config.FeignConfig;
 import code.dto.DateParamDTO;
 import code.dto.UserDTO;
 import org.springframework.cloud.openfeign.FeignClient;

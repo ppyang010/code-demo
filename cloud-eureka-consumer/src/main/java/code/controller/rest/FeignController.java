@@ -1,7 +1,9 @@
 package code.controller.rest;
 
+import code.feign.GatewayFeignClient;
 import code.feign.RemoteService;
 import code.feign.RemoteUploadService;
+import code.feign.SingleTimeOutService;
 import code.suport.InMemoryMultipartFile;
 import lombok.AllArgsConstructor;
 import org.apache.commons.fileupload.disk.DiskFileItem;
@@ -29,7 +31,9 @@ import java.io.*;
 public class FeignController {
 
     private RemoteService remoteService;
+    private SingleTimeOutService singleTimeOutService;
     private RemoteUploadService remoteUploadService;
+    private GatewayFeignClient gatewayFeignClient;
 
     /**
      * Feign 方式
@@ -100,5 +104,13 @@ public class FeignController {
         return inMemoryMultipartFile.getName();
     }
 
+    @GetMapping("/default")
+    public String defaultMethod() {
+        return gatewayFeignClient.defaultMethod();
+    }
 
+    @GetMapping("/slow2")
+    public String slow2() {
+        return singleTimeOutService.slow2(8000);
+    }
 }
