@@ -12,6 +12,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.cloud.openfeign.FeignContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.client.RestTemplate;
 
 /**
@@ -32,6 +33,7 @@ import org.springframework.web.client.RestTemplate;
 
 @EnableFeignClients(defaultConfiguration = FeignConfig.class)
 @SpringCloudApplication
+@EnableScheduling
 //为ribbon设置配置
 //@RibbonClient(name = "could-eureka-producer", configuration = RibbonConfig.class)
 //@RibbonClients(defaultConfiguration = RibbonConfig.class)

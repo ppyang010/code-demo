@@ -46,6 +46,15 @@ hystrix:
         isolation:
           thread:
             timeoutInMilliseconds: 3000 #请求超时时间
+      circuitBreaker: #熔断器相关配置
+        enabled: true   #是否启动熔断器，默认为true，false表示不要引入Hystrix。
+        requestVolumeThreshold: 10     #启用熔断器功能窗口时间内的最小请求数，建议设置为 QPS * 窗口秒数 * 60%。
+        sleepWindowInMilliseconds: 5000    #所以此配置的作用是指定熔断器打开后多长时间内允许一次请求尝试执行，官方默认配置为5秒。
+        errorThresholdPercentage: 20   #窗口时间内超过50%的请求失败后就会打开熔断器将后续请求快速失败掉,默认配置为50
+      metrics:
+        rollingStats:
+          timeInMilliseconds: 20000 #此配置项指定了窗口的大小，单位是 ms，默认值是 1000，即一个滑动窗口默认统计的是 1s 内的请求数据.该时间也是断路器判断健康度时需要收集信息的持续时间
+
     #    为方法定制线程池 线程池名称
     FallbackTestFeignClient#errorThreadNotEnough():
       threadPoolKeyOverride: xxxPool
@@ -53,6 +62,9 @@ hystrix:
         isolation:
           thread:
             timeoutInMilliseconds: 3000 #请求超时时间
+
+
+
 
 #ribbon:
 ##  ServerListUpdaterClassName: com.netflix.niws.loadbalancer.EurekaNotificationServerListUpdater
