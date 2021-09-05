@@ -1,8 +1,10 @@
 spring:
   profiles:
     active: dev0
+    include: redis
 server:
   port: 9000
+
 ---
 spring:
   profiles: dev0
@@ -36,12 +38,21 @@ spring:
           uri: http://www.baidu.com:80/
           predicates:
             - Path=/baidu
-        - id: taob_route
-          uri: http://www.taobao.com:80/
+        - id: hystrix_lb   #hystrix + lb
+          uri: lb://could-eureka-consumer/
           predicates:
-            - Path=/taobao
+            - Path=/hystrix_lb/**
+          filters:
+            - name: Hystrix
+              args: #指定hystrix command的名称，及fallbackUri，注意fallbackUri要以forward开头
+                name: fallbackcmd
+                fallbackUri: forward:/fallback
 
-
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 
 eureka:
   client:

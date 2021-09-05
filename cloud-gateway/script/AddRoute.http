@@ -1,0 +1,27 @@
+# 增加、修改路由信息 @PostMapping 新增一个路由信息
+POST http://localhost:9000/actuator/gateway/routes/dynamic
+Content-Type: application/json
+
+{
+  "uri": "lb://could-eureka-consumer",
+  "predicates": [
+    {
+      "args": {
+        "pattern": "/dynamic/**"
+      },
+      "name": "Path"
+    }
+  ],
+  "filters": [
+    {
+      "args": {
+        "parts": "1"
+      },
+      "name": "StripPrefix"
+    }
+  ]
+}
+
+
+###### @DeleteMapping 删除一个路由信息
+DELETE http://localhost:9000/actuator/gateway/routes/dynamic

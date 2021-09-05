@@ -33,7 +33,7 @@ import java.util.TreeMap;
  *
  * @author ccy
  */
-@Component
+//@Component
 public class HttpSignFilter implements GlobalFilter, Ordered {
 
     /**

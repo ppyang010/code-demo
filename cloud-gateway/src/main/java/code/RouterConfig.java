@@ -22,10 +22,6 @@ public class RouterConfig {
     public RouteLocator myRoutes(RouteLocatorBuilder builder) {
         return builder.routes()
                 .route(p -> p
-                        .path("/jd")
-//                        .filters(f -> f.addRequestHeader("Hello", "World"))
-                        .uri("http://jd.com:80/").id("jd_route"))
-                .route(p -> p
                         .path("/bili")
                         .uri("http://www.bilibili.com:80/").id("bili_route"))
                 .route(r -> r
@@ -44,6 +40,7 @@ public class RouterConfig {
                                         .setFallbackUri("forward:/fallback")))
                         .uri("http://127.0.0.1:7720/gateway/target").id("target_route"))
                 .route(r -> r
+                        //lb+hystrix
                         .path("/code_lb/**")
                         .filters(f -> f.stripPrefix(1).addRequestHeader("head", "这是code_lb")
                                 .addRequestParameter("isSleep", "true")
