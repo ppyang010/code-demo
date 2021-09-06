@@ -27,7 +27,7 @@ public class GatewayDynamicRouteService implements ApplicationEventPublisherAwar
     public int add(RouteDefinition routeDefinition) {
         //向redis中添加路由
         redisRouteDefinitionRepository.save(Mono.just(routeDefinition)).subscribe();
-        //触发单机的刷新路由,生效路由
+        //触发单机的刷新路由事件,生效新的路由
         //会调用 RedisDynamicRouteDefinitionRepository.getRouteDefinitions 方法
         applicationEventPublisher.publishEvent(new RefreshRoutesEvent(this));
         //todo 分布式的情况下可以使用redis 订阅机制(主动刷新) or 创建定时任务 被动刷新
