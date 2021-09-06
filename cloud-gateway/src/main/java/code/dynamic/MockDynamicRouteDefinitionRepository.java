@@ -19,7 +19,7 @@ import static java.util.Collections.synchronizedMap;
  * 参考InMemoryRouteDefinitionRepository spring cloud gateway 自带的维护路由仓库
  * 自定义动态路由
  */
-@Component
+//@Component
 public class MockDynamicRouteDefinitionRepository implements RouteDefinitionRepository {
 
     /**
