@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    # 动态数据源配置
+    dynamic:
+      datasource:
+        master:
+          type: com.alibaba.druid.pool.DruidDataSource
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://127.0.0.1:3306/no_sharding?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8&useTimezone=true&rewriteBatchedStatements=true
+          username: root
+          password: Dd#2021
+      # 指定默认数据源名称
+      primary: master
+  # 分表配置
+  shardingsphere:
+    props:
+      # 日志显示SQL
+      sql.show: true
+logging:
+  level:
+    com:
+      github:
+        dudiao:
+          sharding: debug
