@@ -2,7 +2,6 @@ package com.code.example.scheduling;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
@@ -24,8 +23,8 @@ public class SchedulingService {
     private RestTemplate restTemplate;
 
 
-//    @Scheduled(cron = "0/10 * * * * ?")
-    @Scheduled(cron = "0 0/5 * * * ?")
+    //    @Scheduled(cron = "0/10 * * * * ?")
+//    @Scheduled(cron = "0 0/5 * * * ?")
     public void schedulingA() {
         log.info("schedulingA method run thread name={}", Thread.currentThread().getName());
         while (true) {

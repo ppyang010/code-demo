@@ -1,0 +1,2 @@
+###
+GET http://localhost:8000/data/array?arr=1&arr=2&arr=3

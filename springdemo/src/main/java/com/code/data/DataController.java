@@ -3,7 +3,10 @@ package com.code.data;
 import cn.hutool.core.date.DateTime;
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.RandomUtil;
+import cn.hutool.json.JSON;
+import cn.hutool.json.JSONUtil;
 import com.google.common.collect.Lists;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import sun.rmi.runtime.Log;
@@ -22,6 +25,7 @@ import java.util.concurrent.Executors;
  * 数据库操作 demo
  */
 @RestController
+@Slf4j
 public class DataController {
 
     @Autowired
@@ -148,6 +152,13 @@ public class DataController {
             }
         }
         return "finish";
+    }
+
+
+    @GetMapping("/data/array")
+    public String dataArray(Integer[] arr) {
+        log.info(JSONUtil.toJsonStr(arr));
+        return "ok";
     }
 
     public static void main(String[] args) throws ClassNotFoundException {
