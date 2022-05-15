@@ -9,6 +9,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <modules>
         <module>demo-reactor</module>
+        <module>demo-redis</module>
     </modules>
 
     <name>${project.artifactId}</name>
@@ -186,7 +187,7 @@
         <repository>
             <id>aliyun</id>
             <name>aliyun</name>
-            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+            <url>https://maven.aliyun.com/nexus/content/groups/public/</url>
         </repository>
         <!--使用Spring镜像-->
         <repository>
