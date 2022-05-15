@@ -1,0 +1,5 @@
+pom依赖项目
+通过创建不同的pom依赖项目管理spring的依赖,当前项目依赖最外层的pom文件
+
+当前pom版本管理的spring相关版本为
+boot 2.1.x

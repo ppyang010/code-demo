@@ -10,6 +10,7 @@
     <modules>
         <module>demo-reactor</module>
         <module>demo-redis</module>
+        <module>pom-cloud-2.1.x</module>
     </modules>
 
     <name>${project.artifactId}</name>
