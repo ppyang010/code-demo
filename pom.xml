@@ -11,7 +11,7 @@
     <modules>
 <!--        <module>demo-reactor</module>-->
 <!--        <module>demo-redis</module>-->
-        <module>pom-cloud-greenwich</module>
+<!--        <module>pom-cloud-greenwich</module>-->
     </modules>
 
     <name>${project.artifactId}</name>
@@ -35,8 +35,8 @@
         <jackson.modules>2.9.6</jackson.modules>
         <httpclient.version>4.5.8</httpclient.version>
         <okhttp.version>3.14.0</okhttp.version>
-        <nacos.config.version>2.1.2.RELEASE</nacos.config.version>
-        <spring-cloud.alibaba.version>2.1.2.RELEASE</spring-cloud.alibaba.version>
+<!--        <nacos.config.version>2.1.2.RELEASE</nacos.config.version>-->
+<!--        <spring-cloud.alibaba.version>2.1.2.RELEASE</spring-cloud.alibaba.version>-->
         <mybaits-plus.version>3.3.2</mybaits-plus.version>
     </properties>
 
@@ -69,14 +69,14 @@
 <!--                <scope>import</scope>-->
 <!--            </dependency>-->
 
-            <!-- todo spring cloud alibaba 依赖变更为独立的pom项目    -->
-            <dependency>
-                <groupId>com.alibaba.cloud</groupId>
-                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
-                <version>${spring-cloud.alibaba.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
+            <!--  spring cloud alibaba 依赖变更为独立的pom项目  2022年05月16日   -->
+<!--            <dependency>-->
+<!--                <groupId>com.alibaba.cloud</groupId>-->
+<!--                <artifactId>spring-cloud-alibaba-dependencies</artifactId>-->
+<!--                <version>${spring-cloud.alibaba.version}</version>-->
+<!--                <type>pom</type>-->
+<!--                <scope>import</scope>-->
+<!--            </dependency>-->
 
 
             <!--jackson模块-->
