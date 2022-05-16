@@ -4,7 +4,6 @@ import com.code.auth.domain.PageBean;
 import com.code.auth.domain.PlatformReturn;
 import com.code.auth.domain.User;
 import com.code.auth.service.UserService;
-import jdk.nashorn.internal.objects.annotations.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;

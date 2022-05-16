@@ -10,7 +10,6 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>pom-cloud-alibaba-2.1</module>
     </modules>
     <parent>
         <groupId>com.code</groupId>

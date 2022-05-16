@@ -9,25 +9,25 @@
     <version>0.0.1-SNAPSHOT</version>
 
     <modules>
-<!--        <module>demo-reactor</module>-->
-<!--        <module>demo-redis</module>-->
-<!--        <module>pom-cloud-greenwich</module>-->
+        <!--        <module>demo-reactor</module>-->
+        <!--        <module>demo-redis</module>-->
+        <!--        <module>pom-cloud-greenwich</module>-->
     </modules>
 
     <name>${project.artifactId}</name>
     <packaging>pom</packaging>
 
-<!--  spring boot 依赖变更为独立的pom项目 2022年05月16日   -->
-<!--    <parent>-->
-<!--        <groupId>org.springframework.boot</groupId>-->
-<!--        <artifactId>spring-boot-starter-parent</artifactId>-->
-<!--        <version>2.1.16.RELEASE</version>-->
-<!--    </parent>-->
+    <!--  spring boot 依赖变更为独立的pom项目 2022年05月16日   -->
+    <!--    <parent>-->
+    <!--        <groupId>org.springframework.boot</groupId>-->
+    <!--        <artifactId>spring-boot-starter-parent</artifactId>-->
+    <!--        <version>2.1.16.RELEASE</version>-->
+    <!--    </parent>-->
 
     <properties>
         <spring-boot.version>2.1.6.RELEASE</spring-boot.version>
-<!--        <spring-cloud.version>Greenwich.SR6</spring-cloud.version>-->
-<!--        <spring-platform.version>Cairo-SR5</spring-platform.version>-->
+        <!--        <spring-cloud.version>Greenwich.SR6</spring-cloud.version>-->
+        <!--        <spring-platform.version>Cairo-SR5</spring-platform.version>-->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -35,8 +35,8 @@
         <jackson.modules>2.9.6</jackson.modules>
         <httpclient.version>4.5.8</httpclient.version>
         <okhttp.version>3.14.0</okhttp.version>
-<!--        <nacos.config.version>2.1.2.RELEASE</nacos.config.version>-->
-<!--        <spring-cloud.alibaba.version>2.1.2.RELEASE</spring-cloud.alibaba.version>-->
+        <!--        <nacos.config.version>2.1.2.RELEASE</nacos.config.version>-->
+        <!--        <spring-cloud.alibaba.version>2.1.2.RELEASE</spring-cloud.alibaba.version>-->
         <mybaits-plus.version>3.3.2</mybaits-plus.version>
     </properties>
 
@@ -61,22 +61,22 @@
             <!--</dependency>-->
 
             <!--  spring cloud 依赖变更为独立的pom项目 2022年05月16日   -->
-<!--            <dependency>-->
-<!--                <groupId>org.springframework.cloud</groupId>-->
-<!--                <artifactId>spring-cloud-dependencies</artifactId>-->
-<!--                <version>${spring-cloud.version}</version>-->
-<!--                <type>pom</type>-->
-<!--                <scope>import</scope>-->
-<!--            </dependency>-->
+            <!--            <dependency>-->
+            <!--                <groupId>org.springframework.cloud</groupId>-->
+            <!--                <artifactId>spring-cloud-dependencies</artifactId>-->
+            <!--                <version>${spring-cloud.version}</version>-->
+            <!--                <type>pom</type>-->
+            <!--                <scope>import</scope>-->
+            <!--            </dependency>-->
 
             <!--  spring cloud alibaba 依赖变更为独立的pom项目  2022年05月16日   -->
-<!--            <dependency>-->
-<!--                <groupId>com.alibaba.cloud</groupId>-->
-<!--                <artifactId>spring-cloud-alibaba-dependencies</artifactId>-->
-<!--                <version>${spring-cloud.alibaba.version}</version>-->
-<!--                <type>pom</type>-->
-<!--                <scope>import</scope>-->
-<!--            </dependency>-->
+            <!--            <dependency>-->
+            <!--                <groupId>com.alibaba.cloud</groupId>-->
+            <!--                <artifactId>spring-cloud-alibaba-dependencies</artifactId>-->
+            <!--                <version>${spring-cloud.alibaba.version}</version>-->
+            <!--                <type>pom</type>-->
+            <!--                <scope>import</scope>-->
+            <!--            </dependency>-->
 
 
             <!--jackson模块-->
@@ -116,7 +116,6 @@
             </dependency>
 
 
-
         </dependencies>
     </dependencyManagement>
 
@@ -124,6 +123,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+            <version>1.18.24</version>
         </dependency>
     </dependencies>
 
@@ -182,6 +182,9 @@
             <!--<artifactId>git-commit-id-plugin</artifactId>-->
             <!--<version>2.2.5</version>-->
             <!--</plugin>-->
+
+
+
         </plugins>
     </build>
 
@@ -190,7 +193,7 @@
         <repository>
             <id>aliyun</id>
             <name>aliyun</name>
-            <url>https://maven.aliyun.com/nexus/content/groups/public/</url>
+            <url>https://maven.aliyun.com/repository/public</url>
         </repository>
         <!--使用Spring镜像-->
         <repository>
