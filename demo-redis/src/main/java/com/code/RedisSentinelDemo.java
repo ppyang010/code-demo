@@ -24,6 +24,7 @@ public class RedisSentinelDemo {
         String MASTER_NAME = "mymaster";
         JedisSentinelPool jspool = new JedisSentinelPool(MASTER_NAME, sentinels);
         Jedis jedis = jspool.getResource();
+        System.out.println("port:" + jedis.getClient().getPort());
 
         for (int i = 0; i < 100; i++) {
             String key = "test" + i;
@@ -31,6 +32,7 @@ public class RedisSentinelDemo {
             jedis.set(key, val);
         }
         jedis = jspool.getResource();
+        System.out.println("port:" + jedis.getClient().getPort());
         for (int i = 0; i < 100; i++) {
             String key = "test" + i;
             String val = "test" + i;
