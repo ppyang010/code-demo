@@ -1,4 +1,4 @@
-package com.code;
+package com.code.util;
 
 
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -20,16 +20,15 @@ import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
  * 基于jackson的json 工具类
  */
-public class JsonUtil {
+public class JacksonUtil {
 
-    static final Logger LOG = LoggerFactory.getLogger(JsonUtil.class);
+    static final Logger LOG = LoggerFactory.getLogger(JacksonUtil.class);
 
     private static ObjectMapper mapper = new ObjectMapper();
 
@@ -52,8 +51,7 @@ public class JsonUtil {
 //        mapper.registerModule(new JavaTimeModule());
     }
 
-    private JsonUtil() {
-    }
+
 
     public static <T> String obj2json(T entity) {
         String json = null;
@@ -175,7 +173,7 @@ public class JsonUtil {
         Map<String, Object> map = new HashMap();
         map.put("role", "1001");
         map.put("time", new Date());
-        String s = JsonUtil.obj2json(map);
+        String s = JacksonUtil.obj2json(map);
         System.out.println(s);
     }
 

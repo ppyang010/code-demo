@@ -161,31 +161,7 @@ public class DataController {
         return "ok";
     }
 
-    public static void main(String[] args) throws ClassNotFoundException {
-//        objPoolTest();
-//        Class.forName("com.code.data.DataController");
-//        new DataController();
-//        new TreeMap();
-//        new ConcurrentHashMap<String,String>();
 
-        int score[] = {67, 69, 75, 87, 89, 90, 99, 100};
-        for (int i = 0; i < score.length; i++) {
-            for (int j = 0; j < score.length - i - 1; j++) {
-                if (score[j] < score[j + 1]) {
-                    int temp = score[j];
-                    score[j] = score[j + 1];
-                    score[j + 1] = temp;
-                }
-            }
-        }
-
-        System.out.print("最终排序结果：");
-        for (int a = 0; a < score.length; a++) {
-            System.out.print(score[a] + "\t");
-        }
-
-
-    }
 
     public static void objPoolTest() {
         int i = 40;
