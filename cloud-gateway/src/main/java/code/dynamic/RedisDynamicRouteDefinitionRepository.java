@@ -1,6 +1,7 @@
 package code.dynamic;
 
 import cn.hutool.json.JSONUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.gateway.route.RouteDefinition;
 import org.springframework.cloud.gateway.route.RouteDefinitionRepository;
 import org.springframework.cloud.gateway.support.NotFoundException;
@@ -18,6 +19,7 @@ import java.util.List;
  * https://www.cxyzjd.com/article/y532798113/109855717
  * redis动态路由
  */
+@Slf4j
 @Component
 public class RedisDynamicRouteDefinitionRepository implements RouteDefinitionRepository {
 
@@ -39,8 +41,13 @@ public class RedisDynamicRouteDefinitionRepository implements RouteDefinitionRep
     public Flux<RouteDefinition> getRouteDefinitions() {
 
         List<RouteDefinition> routeDefinitions = new ArrayList<>();
-        redisTemplate.opsForHash().values(KEY).stream()
-                .forEach(routeDefinition -> routeDefinitions.add(JSONUtil.toBean(routeDefinition.toString(), RouteDefinition.class)));
+        try {
+            redisTemplate.opsForHash().values(KEY).stream()
+                    .forEach(routeDefinition -> routeDefinitions.add(JSONUtil.toBean(routeDefinition.toString(), RouteDefinition.class)));
+        } catch (Exception e) {
+            log.error("getRouteDefinitions !!!", e);
+        }
+
         return Flux.fromIterable(routeDefinitions);
     }
 
