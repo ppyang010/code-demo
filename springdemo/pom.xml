@@ -13,7 +13,7 @@
 
     <parent>
         <groupId>com.code</groupId>
-        <artifactId>spring-demo-project</artifactId>
+        <artifactId>pom-boot-2.1.x</artifactId>
         <version>0.0.1-SNAPSHOT</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
