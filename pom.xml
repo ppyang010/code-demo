@@ -12,6 +12,7 @@
         <!--        <module>demo-reactor</module>-->
         <!--        <module>demo-redis</module>-->
         <!--        <module>pom-cloud-greenwich</module>-->
+        <module>demo-grpc</module>
     </modules>
 
     <name>${project.artifactId}</name>
@@ -195,22 +196,7 @@
             <name>aliyun</name>
             <url>https://maven.aliyun.com/repository/public</url>
         </repository>
-        <!--使用Spring镜像-->
-        <repository>
-            <id>spring-milestones</id>
-            <name>Spring Milestones</name>
-            <url>https://repo.spring.io/libs-milestone</url>
-        </repository>
 
-        <repository>
-            <id>central</id>
-            <name>Central Repository</name>
-            <url>https://repo.maven.apache.org/maven2</url>
-            <layout>default</layout>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
 
     </repositories>
 </project>

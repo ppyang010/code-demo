@@ -20,7 +20,7 @@
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <spring-cloud.alibaba.version>2.1.4.RELEASE</spring-cloud.alibaba.version>
-
+        <spring-cloud-openfeign.version>2.1.5.RELEASE</spring-cloud-openfeign.version>
     </properties>
 
     <dependencyManagement>
@@ -32,6 +32,8 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
+
         </dependencies>
 
     </dependencyManagement>
