@@ -5,7 +5,7 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>demo-grpc</artifactId>
+    <artifactId>demo-grpc-interface</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
