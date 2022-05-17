@@ -196,7 +196,5 @@
             <name>aliyun</name>
             <url>https://maven.aliyun.com/repository/public</url>
         </repository>
-
-
     </repositories>
 </project>

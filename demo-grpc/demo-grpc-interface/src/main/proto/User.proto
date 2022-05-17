@@ -1,0 +1,43 @@
+// .proto 文件会生成什么？
+// 对于 Java, 编译器会生成一个 .java 文件和每个消息类型对应的类，同时包含一个特定的 Builder类用于构建消息实例
+// 对于 Java, 编译器会生成一个 .java 文件和每个消息类型对应的类，同时包含一个特定的 Builder类用于构建消息实例。
+//  使用proto3语法
+syntax = "proto3";
+
+// 是否生成多个类
+option java_multiple_files = false;
+
+// 生成java类所在的包
+option java_package = "com.code.proto";
+
+// 生成最外层类的类名 (类的文件名)
+option java_outer_classname = "UserProto";
+
+// The greeting service definition.
+// 定义RPC服务RouteGuice
+service UserService {
+    // listUser方法名  UserRequest 代表传入参数  UserResponse 代表返回响应
+    rpc listUser(UserRequest) returns (UserResponse) {}
+}
+
+// UserRequest结构
+// =1分配字段编号 消息中定义的每个字段都有一个唯一编号
+message UserRequest {
+    string date = 1;
+}
+
+// UserResponse结构
+message UserResponse {
+    string data = 1;
+    //repeated ，格式良好的消息中该字段可以重复任意次数（包括 0 次）。重复值的顺序将被保留。
+    repeated User users = 2;
+}
+
+// User结构
+message User {
+    int32 id = 1;
+    string username = 2;
+    int32 age = 3;
+    int64 create_time = 4;
+    bool valid = 5;
+}
