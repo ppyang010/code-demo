@@ -35,5 +35,12 @@
 
     </dependencyManagement>
 
-
+    <repositories>
+        <!--使用阿里云镜像-->
+        <repository>
+            <id>aliyun</id>
+            <name>aliyun</name>
+            <url>https://maven.aliyun.com/repository/public</url>
+        </repository>
+    </repositories>
 </project>
