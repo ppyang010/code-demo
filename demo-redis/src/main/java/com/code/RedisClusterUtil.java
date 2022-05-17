@@ -54,12 +54,10 @@ public class RedisClusterUtil {
             config.setTestOnReturn(TEST_ON_RETURN);
 
             Set<HostAndPort> jedisClusterNode = new HashSet<HostAndPort>();
-            jedisClusterNode.add(new HostAndPort("192.168.0.31", 6380));
-            jedisClusterNode.add(new HostAndPort("192.168.0.32", 6380));
-            jedisClusterNode.add(new HostAndPort("192.168.0.33", 6380));
-            jedisClusterNode.add(new HostAndPort("192.168.0.34", 6380));
-            jedisClusterNode.add(new HostAndPort("192.168.0.35", 6380));
-            jedisClusterNode.add(new HostAndPort("192.168.0.36", 6380));
+            jedisClusterNode.add(new HostAndPort("127.0.0.1", 5100));
+            jedisClusterNode.add(new HostAndPort("127.0.0.1", 5200));
+            jedisClusterNode.add(new HostAndPort("127.0.0.1", 5300));
+
 
             /**
              参数说明
@@ -70,7 +68,7 @@ public class RedisClusterUtil {
              password：集群密码
              poolConfig：连接池参数
              */
-            jedis = new JedisCluster(jedisClusterNode, 1000, 1000, 5, AUTH, config);
+            jedis = new JedisCluster(jedisClusterNode, 1000, 1000, 5, null, config);
         } catch (Exception e) {
             e.printStackTrace();
         }
