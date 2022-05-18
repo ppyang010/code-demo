@@ -3,16 +3,19 @@ package com.code;
 import cn.hutool.json.JSONUtil;
 import com.code.proto.UserProto;
 import com.code.proto.UserServiceGrpc;
+import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.TextFormat;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.netty.NegotiationType;
 import io.grpc.netty.NettyChannelBuilder;
+import com.google.protobuf.util.JsonFormat;
 
 import java.util.List;
 
 public class UserClient {
-    public static final String host = "localhost";
-    public static final Integer port = 9800;
+    public static final String host = "127.0.0.1";
+    public static final Integer port = 9999;
 
     public static void main(String[] args) {
         ManagedChannel channel = ManagedChannelBuilder.forAddress(host, port)
@@ -25,9 +28,12 @@ public class UserClient {
             List<UserProto.User> usersList = userResponse.getUsersList();
             System.out.println(userRequest.getDate());
             for (UserProto.User user : usersList) {
-                System.out.println(JSONUtil.toJsonStr(user));
+//                System.out.println(user.toString());
+                System.out.println(JsonFormat.printer().includingDefaultValueFields().print(user));
             }
-        }finally {
+        } catch (InvalidProtocolBufferException e) {
+            e.printStackTrace();
+        } finally {
             channel.shutdown();
         }
 

@@ -8,7 +8,7 @@ import io.grpc.ServerBuilder;
 import java.io.IOException;
 
 public class GRpcServer {
-    public static final int port = 9800;
+    public static final int port = 9999;
 
     public static void main(String[] args) throws InterruptedException, IOException {
         Server server = ServerBuilder.forPort(port).addService(new UserService()).build().start();

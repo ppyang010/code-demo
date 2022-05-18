@@ -11,6 +11,7 @@ public class UserService extends UserServiceGrpc.UserServiceImplBase {
     @Override
     public void listUser(UserProto.UserRequest request, StreamObserver<UserProto.UserResponse> responseObserver) {
         String date = request.getDate();
+        System.out.println("date=" + date);
         UserProto.UserResponse res = null;
         UserProto.UserResponse.Builder resBuilder = UserProto.UserResponse.newBuilder();
         resBuilder.setData(date);
@@ -31,7 +32,8 @@ public class UserService extends UserServiceGrpc.UserServiceImplBase {
         } finally {
             responseObserver.onNext(res);
         }
-
+        //处理完成
+        responseObserver.onCompleted();
 
     }
 }
