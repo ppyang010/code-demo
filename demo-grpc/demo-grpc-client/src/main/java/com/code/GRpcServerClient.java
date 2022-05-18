@@ -1,19 +1,15 @@
 package com.code;
 
-import cn.hutool.json.JSONUtil;
 import com.code.proto.UserProto;
 import com.code.proto.UserServiceGrpc;
 import com.google.protobuf.InvalidProtocolBufferException;
-import com.google.protobuf.TextFormat;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
-import io.grpc.netty.NegotiationType;
-import io.grpc.netty.NettyChannelBuilder;
 import com.google.protobuf.util.JsonFormat;
 
 import java.util.List;
 
-public class UserClient {
+public class GRpcServerClient {
     public static final String host = "127.0.0.1";
     public static final Integer port = 9999;
 
