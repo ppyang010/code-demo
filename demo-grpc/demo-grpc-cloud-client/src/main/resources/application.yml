@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: grpc-could-eureka-client
+server:
+  port: 7120
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:7700/eureka
+    registryFetchIntervalSeconds: 5
+
+# 服务器默认运行在PLAINTEXT模式，但客户端试图在TLS(默认)模式中连接它。
+# 简单的解决方案 客户端使用PLAINTEXT模式链接指定服务
+# 参考 https://yidongnan.github.io/grpc-spring-boot-starter/zh-CN/trouble-shooting.html#could-not-find-tls-alpn-provider
+grpc:
+  client:
+    grpc-could-eureka-server:
+      negotiationType: PLAINTEXT
+
+

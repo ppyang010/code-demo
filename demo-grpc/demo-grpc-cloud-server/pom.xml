@@ -37,6 +37,12 @@
 
     </dependencyManagement>
     <dependencies>
+
+        <dependency>
+            <groupId>net.devh</groupId>
+            <artifactId>grpc-server-spring-boot-starter</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>com.code</groupId>
             <version>0.1.1-SNAPSHOT</version>
@@ -44,8 +50,8 @@
         </dependency>
 
         <dependency>
-            <groupId>net.devh</groupId>
-            <artifactId>grpc-server-spring-boot-starter</artifactId>
+            <groupId>com.google.protobuf</groupId>
+            <artifactId>protobuf-java-util</artifactId>
         </dependency>
 
         <dependency>

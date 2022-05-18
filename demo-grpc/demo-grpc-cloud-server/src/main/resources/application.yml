@@ -8,9 +8,9 @@ eureka:
     serviceUrl:
       defaultZone: http://127.0.0.1:7700/eureka
     registryFetchIntervalSeconds: 5
-
-#grpc:
-#  server:
-#    port: 0
+#grpc端口 设置为0使用随机端口
+grpc:
+  server:
+    port: 9090
 
 
