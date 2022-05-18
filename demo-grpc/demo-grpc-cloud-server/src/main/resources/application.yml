@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: grpc-could-eureka-server
+server:
+  port: 7110
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:7700/eureka
+    registryFetchIntervalSeconds: 5
+
+#grpc:
+#  server:
+#    port: 0
+
+

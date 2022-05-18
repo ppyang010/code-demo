@@ -12,7 +12,6 @@
         <!--        <module>demo-reactor</module>-->
         <!--        <module>demo-redis</module>-->
         <!--        <module>pom-cloud-greenwich</module>-->
-        <module>demo-grpc</module>
     </modules>
 
     <name>${project.artifactId}</name>
