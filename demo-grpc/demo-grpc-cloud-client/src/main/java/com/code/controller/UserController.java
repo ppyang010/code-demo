@@ -1,6 +1,7 @@
 package com.code.controller;
 
 import cn.hutool.core.date.DateUtil;
+import cn.hutool.core.util.RandomUtil;
 import cn.hutool.core.util.StrUtil;
 import com.code.proto.UserProto;
 import com.code.proto.UserServiceGrpc;
@@ -26,7 +27,7 @@ public class UserController {
     @GetMapping("/user/list")
     public String listUsers(String date) throws InvalidProtocolBufferException {
         if (StrUtil.isBlank(date)) {
-            date = DateUtil.today();
+            date = DateUtil.today() + "-" + RandomUtil.randomNumbers(5);
         }
         UserProto.UserRequest userRequest = UserProto.UserRequest.newBuilder().setDate(date).build();
         UserProto.UserResponse userResponse = userServiceBlockingStub.listUser(userRequest);
