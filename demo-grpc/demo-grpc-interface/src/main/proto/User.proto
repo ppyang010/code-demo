@@ -7,37 +7,47 @@ syntax = "proto3";
 // 是否生成多个类
 option java_multiple_files = false;
 
-// 生成java类所在的包
+// 生成java类所在的包 (需要文件夹)
 option java_package = "com.code.proto";
 
-// 生成最外层类的类名 (类的文件名)
+// 生成最外层类的类名 (类的文件名)(会有多个内部类 最外面类的名字)
 option java_outer_classname = "UserProto";
+
+// 逻辑包名
+package user;
 
 // The greeting service definition.
 // 定义RPC服务RouteGuice
+//用于描述要生成的API接口,类似于java业务逻辑接口类
 service UserService {
-    // listUser方法名  UserRequest 代表传入参数  UserResponse 代表返回响应
-    rpc listUser(UserRequest) returns (UserResponse) {}
+  // listUser方法名  UserRequest 代表传入参数  UserResponse 代表返回响应
+  rpc listUser(UserRequest) returns (UserResponse) {}
 }
-
+/**
+消息是gRPC描述信息的基本单位，类以Java的”实体类"
+消息的名字，对应于生成代码后的类名
+每一个消息都对应生成一个类，根据java_ multiple_files 设置不同文件数量也不同
+java multiple files=true, protobuf为每一个消总白动生成一个java文件
+java multiple files=false, protobuf会生成一个大类，消息作为子类樂中在一个java文件
+ */
 // UserRequest结构
 // =1分配字段编号 消息中定义的每个字段都有一个唯一编号
 message UserRequest {
-    string date = 1;
+  string date = 1;
 }
 
 // UserResponse结构
 message UserResponse {
-    string data = 1;
-    //repeated ，格式良好的消息中该字段可以重复任意次数（包括 0 次）。重复值的顺序将被保留。
-    repeated User users = 2;
+  string data = 1;
+  //repeated ，格式良好的消息中该字段可以重复任意次数（包括 0 次）。重复值的顺序将被保留。
+  repeated User users = 2;
 }
 
 // User结构
 message User {
-    int32 id = 1;
-    string username = 2;
-    int32 age = 3;
-    int64 create_time = 4;
-    bool valid = 5;
+  int32 id = 1;
+  string username = 2;
+  int32 age = 3;
+  int64 create_time = 4;
+  bool valid = 5;
 }

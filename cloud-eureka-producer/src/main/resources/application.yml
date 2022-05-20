@@ -13,7 +13,8 @@ eureka:
     serviceUrl:
       defaultZone: http://127.0.0.1:7700/eureka
     registryFetchIntervalSeconds: 5
-
+  metadata-map:
+    my-metadata: my-metadata-dev0
 
 
 ---
@@ -27,4 +28,6 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://127.0.0.1:7700/eureka
+  metadata-map:
+     my-metadata: my-metadata-dev1
 
