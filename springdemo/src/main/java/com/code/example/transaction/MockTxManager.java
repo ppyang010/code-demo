@@ -4,6 +4,7 @@ import cn.hutool.core.util.RandomUtil;
 import com.code.data.UserTestDao;
 import com.code.data.UserTestEntity;
 import com.code.util.JacksonUtil;
+import com.code.util.SpringUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,5 +37,7 @@ public class MockTxManager {
         userTestDao.save(peopleEntity);
         byId = userTestDao.findById(peopleEntity.getId());
         log.info("query2={}",JacksonUtil.obj2str(byId.get()));
+        SpringUtil.publishEvent(new AfterTransactionEvent(peopleEntity));
+        log.info("txStart method finish");
     }
 }
