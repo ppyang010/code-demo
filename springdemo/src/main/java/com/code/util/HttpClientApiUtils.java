@@ -29,7 +29,6 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 
 
-
 import java.io.*;
 
 import java.net.URISyntaxException;
@@ -45,7 +44,6 @@ import java.util.List;
 import java.util.Map;
 
 
-
 public class HttpClientApiUtils {
 
     private static PoolingHttpClientConnectionManager cm;
@@ -55,6 +53,7 @@ public class HttpClientApiUtils {
     private static String UTF_8 = "UTF-8";
 
 
+    private static CloseableHttpClient client;
 
     private static void init() {
 
@@ -75,33 +74,30 @@ public class HttpClientApiUtils {
     }
 
 
-
     /**
-
      * 通过连接池获取HttpClient
-
      *
-
      * @return
-
      */
 
     private static CloseableHttpClient getHttpClient() {
+        if (client == null) {
+            synchronized (HttpClientApiUtils.class) {
+                if (client == null) {
+                    init();
+                    client = HttpClients.custom().setConnectionManager(cm).build();
+                }
+            }
+        }
 
-        init();
-
-        return HttpClients.custom().setConnectionManager(cm).build();
+        return client;
 
     }
 
 
-
     /**
-
      * @param url
-
      * @return
-
      */
 
     public static String httpGetRequest(String url) {
@@ -111,7 +107,6 @@ public class HttpClientApiUtils {
         return getResult(httpGet);
 
     }
-
 
 
     public static String httpGetRequest(String url, Map<String, Object> params) throws URISyntaxException {
@@ -127,7 +122,6 @@ public class HttpClientApiUtils {
         return getResult(httpGet);
 
     }
-
 
 
     public static String httpGetRequest(String url, Map<String, Object> headers, Map<String, Object> params)
@@ -155,7 +149,6 @@ public class HttpClientApiUtils {
     }
 
 
-
     public static String httpPostRequest(String url) {
 
         HttpPost httpPost = new HttpPost(url);
@@ -165,12 +158,11 @@ public class HttpClientApiUtils {
     }
 
 
-
-    public static String httpPostRequest(String url,String json) {
+    public static String httpPostRequest(String url, String json) {
 
         HttpPost httpPost = new HttpPost(url);
 
-        StringEntity entity = new StringEntity(json,"utf-8");//解决中文乱码问题
+        StringEntity entity = new StringEntity(json, "utf-8");//解决中文乱码问题
 
         entity.setContentEncoding("UTF-8");
 
@@ -181,7 +173,6 @@ public class HttpClientApiUtils {
         return getResult(httpPost);
 
     }
-
 
 
     public static String httpPostRequest(String url, Map<String, Object> params) throws UnsupportedEncodingException {
@@ -195,7 +186,6 @@ public class HttpClientApiUtils {
         return getResult(httpPost);
 
     }
-
 
 
     public static String httpPostRequest(String url, Map<String, Object> headers, Map<String, Object> params)
@@ -215,11 +205,9 @@ public class HttpClientApiUtils {
         httpPost.setEntity(new UrlEncodedFormEntity(pairs, UTF_8));
 
 
-
         return getResult(httpPost);
 
     }
-
 
 
     private static ArrayList<NameValuePair> covertParams2NVPS(Map<String, Object> params) {
@@ -237,11 +225,8 @@ public class HttpClientApiUtils {
     }
 
 
-
     /**
-
      * 处理Http请求
-
      */
 
     private static String getResult(HttpRequestBase request) {
