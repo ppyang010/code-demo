@@ -1,46 +1,24 @@
 package com.code.util;
 
 import org.apache.http.HttpEntity;
-
 import org.apache.http.NameValuePair;
-
 import org.apache.http.client.entity.UrlEncodedFormEntity;
-
 import org.apache.http.client.methods.CloseableHttpResponse;
-
 import org.apache.http.client.methods.HttpGet;
-
 import org.apache.http.client.methods.HttpPost;
-
 import org.apache.http.client.methods.HttpRequestBase;
-
 import org.apache.http.client.utils.URIBuilder;
-
 import org.apache.http.entity.StringEntity;
-
 import org.apache.http.impl.client.CloseableHttpClient;
-
 import org.apache.http.impl.client.HttpClients;
-
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
-
 import org.apache.http.message.BasicNameValuePair;
-
 import org.apache.http.util.EntityUtils;
 
-
-import java.io.*;
-
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.net.URISyntaxException;
-
-import java.net.URL;
-
-import java.net.URLConnection;
-
 import java.util.ArrayList;
-
-import java.util.List;
-
 import java.util.Map;
 
 
@@ -53,7 +31,7 @@ public class HttpClientApiUtils {
     private static String UTF_8 = "UTF-8";
 
 
-    private static CloseableHttpClient client;
+    private static volatile CloseableHttpClient client;
 
     private static void init() {
 
