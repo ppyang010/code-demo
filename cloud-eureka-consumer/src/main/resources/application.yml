@@ -1,6 +1,8 @@
 spring:
   application:
     name: could-eureka-consumer
+  profiles:
+    include: dynamic-thread-pool
   main:
     allow-bean-definition-overriding: true #允许多个feignclient 使用通过服务name
 
