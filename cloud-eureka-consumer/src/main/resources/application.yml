@@ -25,6 +25,8 @@ form:
 # 对应默认配置 com.netflix.hystrix.HystrixCommandProperties
 hystrix:
   threadpool:
+
+
     default:
       coreSize: 10 #线程池的核心线程数 默认10
       maxQueueSize: -1 #BlockingQueue的最大队列数，默认值-1 ,-1表示不等待直接拒绝,测试表明线程池使用直接决绝策略

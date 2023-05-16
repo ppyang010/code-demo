@@ -1,10 +1,11 @@
 package code.controller;
 
+import code.dto.UserDTO;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.annotation.Resource;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * @author ccy
@@ -19,7 +20,12 @@ public class ConfigTestController {
     private String profile;
 
     @GetMapping("/config/test")
-    public String test() {
-        return profile + ":" + remark;
+    public UserDTO test(HttpServletResponse response) {
+        System.out.println("profile="+profile);
+        System.out.println("remark="+remark);
+        UserDTO userDTO = new UserDTO();
+        userDTO.setMsg("hello");
+        userDTO.setUsername("ccy");
+        return userDTO;
     }
 }
