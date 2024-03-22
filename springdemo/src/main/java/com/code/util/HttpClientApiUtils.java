@@ -53,7 +53,8 @@ public class HttpClientApiUtils {
 
 
     /**
-     * 通过连接池获取HttpClient
+     * 获取HttpClient对象
+     * (包含连接池)
      *
      * @return
      */
